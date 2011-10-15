@@ -1,0 +1,9 @@
+Specification-Title: sms-email-sender
+Specification-Version: ${pom.version} - ${build.time}
+Specification-Vendor: BlahBlah
+Implementation-Title: sms-email-sender
+Implementation-Version: ${pom.version} - ${build.time}
+Implementation-Vendor: BlahBlah
+Built-By: ${user.name}
+Build-Jdk: ${java.version}
+Build-Time: ${build.time}
