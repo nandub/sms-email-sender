@@ -1,0 +1,77 @@
+Build Package
+
+I currently use maven to create the jar.
+
+mvn package
+
+Once it completes the above a jar will be created on the 'target' folder.  The jar is named sms-email-sender-VERSION.jar.
+
+The jar depends on the following libraries:
+
+mail-1.4.4.jar
+commons-cli-1.2.jar
+
+activation-1.1.jar - optional
+
+For your convenience I put a copy of the libraries on the 'lib' folder.
+
+Command Line Support
+
+Sending an Email
+
+java -jar target/sms-email-sender-0.1.jar --host mailhost --subject "This is a test" --message "Howdy.." --to hello@example.net
+
+Sending a Text (Using SMTP protocol)
+
+java -jar target/sms-email-sender-0.1.jar --host mailhost --message "Howdy.." --to 5041231234@att
+
+I only use AT&T so I'm not sure if the other carriers work.  Use the --sms-carriers option for a valid list of carriers.
+
+Usage
+
+java -jar target/sms-email-sender-0.1.jar --help
+
+usage: sms-send [-b <arg>] [-c <arg>] [-d] [-f <arg>] [-H <arg>] [-h] [-i]
+       [-l] [-m <arg>] [-p <arg>] [-s <arg>] [-t <arg>]
+Command line for sms-send, Copyright 2011, Fernando Ortiz
+    -b,--bcc <arg>      send blind carbon copies to a list of users.  bcc,
+                        should be a comma separated list of names.
+                        (format:
+                        sms-number/email-name@sms-carrier/domain-email)
+    -c,--cc <arg>       send carbon copies to a list of users.  cc, should
+                        be a comma separated list of names. (format:
+                        sms-number/email-name@sms-carrier/domain-email)
+    -d,--debug          enable debugging.
+    -f,--from <arg>     set the user sending the sms/email message.
+    -H,--host <arg>     host, the email host server (default: mailhost).
+    -h,--help           print this message.
+    -i,--info           contact information.
+    -l,--sms-carriers   list valid SMS carriers.
+    -m,--message <arg>  the text message to send; be careful to quote the
+                        message containing spaces.
+    -p,--port <arg>     port, the email host server (default: 25).
+    -s,--subject <arg>  subject to send; be careful to quote subjects
+                        containing spaces.
+    -t,--to <arg>       send to a list of users.  to, should be a comma
+                        separated list of names.  (format:
+                        sms-number/email-name@sms-carrier/domain-email)
+For contact information, type --info
+
+Supported SMS Carriers (AT&T tested only)
+
+java -jar target/sms-email-sender-0.1.jar --sms-carriers
+Available Carriers:
+
+alltel
+att
+boost
+metrocall
+metropcs
+nextel
+sprint
+tmobile
+verizon
+virgin
+
+NOTE: You could also use the library on your own projects.  
+      See 'net.hellosaint.lib.smsemail.SmsOrEmail' class to see how to use it.
